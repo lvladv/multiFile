@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <title>Document</title>
+  <style>
+    #uploadImagesList {
+      list-style: none;
+      padding: 0;
+    }
+
+    #uploadImagesList .item {
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    #uploadImagesList .item .img-wrap {
+      width: inherit;
+      display: block;
+      height: 150px;
+    }
+
+    #uploadImagesList .item .img-wrap img {
+      width: auto;
+      height: inherit;
+    }
+
+    #uploadImagesList .item .delete-link {
+      cursor: pointer;
+      display: block;
+    }
+
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="uploadImages.php" method="post" enctype="multipart/form-data" id="uploadImages">
+    <fieldset>
+      <p><label></label> Имя</label><input type="text" /></p>
+      <p>
+        <label> Фамилия</label>
+        <input type="text" />
+      </p>
+      <p><label>Логин</label><input type="text" /></p>
+      <p><label>Пароль</label><input type="password" /></p>
+      <p>
+        <input type="file" id="addImages" multiple="">
+      </p>
+    </fieldset>
+
+    <input type="submit" />
+
+    <ul id="uploadImagesList">
+      <li class="item template">
+        <span class="img-wrap">
+          <img src="image.jpg" alt="">
+        </span>
+        <span class="delete-link" title="Удалить">Удалить</span>
+      </li>
+    </ul>
+
+    <div class="clear"></div>
+
+  </form>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
