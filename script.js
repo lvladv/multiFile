@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
   itemPreviewTemplate.removeClass("template");
   imagesList.find(".item.template").remove();
 
-  $("#addImages").on("change", function() {
+  $("#customFile").on("change", function() {
     var files = this.files;
 
     for (var i = 0; i < files.length; i++) {
@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
   }
 
   // Удаление фотографий
-  imagesList.on("click", ".delete-link", function() {
+  imagesList.on("click", ".close", function() {
     var item = $(this).closest(".item"),
       id = item.data("id");
 

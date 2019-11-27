@@ -6,11 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  </script>
   <title>Document</title>
   <style>
     #uploadImagesList {
       list-style: none;
       padding: 0;
+      margin: 50px;
     }
 
     #uploadImagesList .item {
@@ -22,7 +36,8 @@
     #uploadImagesList .item .img-wrap {
       width: inherit;
       display: block;
-      height: 150px;
+      height: 70px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
     #uploadImagesList .item .img-wrap img {
@@ -42,37 +57,71 @@
 </head>
 
 <body>
-  <form action="uploadImages.php" method="post" enctype="multipart/form-data" id="uploadImages">
-    <fieldset>
-      <p><label></label> Имя</label><input type="text" /></p>
-      <p>
-        <label> Фамилия</label>
-        <input type="text" />
-      </p>
-      <p><label>Логин</label><input type="text" /></p>
-      <p><label>Пароль</label><input type="password" /></p>
-      <p>
-        <input type="file" id="addImages" multiple="">
-      </p>
-    </fieldset>
 
-    <input type="submit" />
 
-    <ul id="uploadImagesList">
-      <li class="item template">
-        <span class="img-wrap">
-          <img src="image.jpg" alt="">
-        </span>
-        <span class="delete-link" title="Удалить">Удалить</span>
-      </li>
-    </ul>
+  <form class="w-50 p-3" action="куда_то_в_пхп.php" method="post" enctype="multipart/form-data" id="uploadImages">
 
-    <div class="clear"></div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Имя</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" placeholder="Имя">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Фамилия</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" placeholder="Фамилия">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Логин</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail3" placeholder="Логин">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Пароль</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-danger btn-xs btn-block">Submit</button>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="custom-file col-10 form-group row ">
+          <input type="file" class="custom-file-input" id="customFile" multiple="">
+          <label class="btn btn-info btn-xs btn-block" for="customFile">Загрузить файл</label>
+        </div>
+      </div>
+
+
+      <div class="container mt-md-7 ">
+        <ul id="uploadImagesList">
+          <li class="item template">
+            <span class="img-wrap">
+              <img src="image.jpg" alt="">
+            </span>
+            <button type="button" class="close text-danger " aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="clear"></div>
+      </div>
+
 
   </form>
 
 
   <script src="script.js"></script>
+
 </body>
 
 </html>
