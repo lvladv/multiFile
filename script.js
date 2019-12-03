@@ -1,15 +1,15 @@
-jQuery(document).ready(function($) {
-  var queue = {};
-  var form = $("form#uploadImages");
-  var imagesList = $("#uploadImagesList");
-  var itemPreviewTemplate = imagesList.find(".item.template").clone();
+jQuery(document).ready($=> {
+  let queue = {};
+  let form = $("form#uploadImages");
+  let imagesList = $("#uploadImagesList");
+  let itemPreviewTemplate = imagesList.find(".item.template").clone();
   itemPreviewTemplate.removeClass("template");
   imagesList.find(".item.template").remove();
 
   $("#customFile").on("change", function() {
-    var files = this.files;
+    let files = this.files;
 
-    for (var i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       preview(files[i]);
     }
 
@@ -17,12 +17,12 @@ jQuery(document).ready(function($) {
   });
 
   // Создание превью
-  function preview(file) {
-    var reader = new FileReader();
-    reader.addEventListener("load", function(event) {
-      var img = document.createElement("img");
+  const preview=file=> {
+    let reader = new FileReader();
+    reader.addEventListener("load", event => {
+      let img = document.createElement("img");
 
-      var itemPreview = itemPreviewTemplate.clone();
+      let itemPreview = itemPreviewTemplate.clone();
 
       itemPreview.find(".img-wrap img").attr("src", event.target.result);
       itemPreview.data("id", file.name);
@@ -35,8 +35,8 @@ jQuery(document).ready(function($) {
   }
 
   // Удаление фотографий
-  imagesList.on("click", ".close", function() {
-    var item = $(this).closest(".item"),
+  imagesList.on("click", ".close",function(){
+    let item = $(this).closest(".item"),
       id = item.data("id");
 
     delete queue[id];
@@ -45,10 +45,10 @@ jQuery(document).ready(function($) {
   });
 
   // Отправка формы
-  form.on("submit", function(event) {
-    var formData = new FormData(this);
+  form.on("submit", ()=> {
+    let formData = new FormData(this);
 
-    for (var id in queue) {
+    for (let id in queue) {
       formData.append("images[]", queue[id]);
     }
 
@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
       type: "POST",
       data: formData,
       async: true,
-      success: function(res) {
+      success: res => {
         alert(res);
       },
       cache: false,
